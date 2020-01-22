@@ -1,38 +1,53 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.textBold}>Hello world</Text>
+      <View style={styles.container}>
+        <View style={styles.body}>
+
+          <View style={styles.eyes}>
+            <View style={styles.eyeLeft}></View>
+            <View style={styles.eyeRight}></View>
+          </View>
+
+          <View style={styles.mouth}>
+            <View style={styles.mouth1}></View>
+          </View>
+
+        </View>
       </View>
-      <View style={styles.body}>
-          <Text style={styles.textBold}>Lorem ipsu dolro sit amet. <Text>Jajaja</Text></Text>
-          <Text>Lorem ipsu dolro sit amet.</Text>
-          <Text>Lorem ipsu dolro sit amet.</Text>
-      </View>
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2d0073',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  header: {
-    backgroundColor : 'purple',
-    padding : 20,
-  },
-  textBold: {
-    fontWeight : 'bold',
-    color : 'white',
-  },
   body: {
-    backgroundColor : 'green',
-    padding : 50,
+    backgroundColor: 'green',
+    padding: 90,
+    flexDirection: 'column',
+  },
+  eyes: {
+    flexDirection: 'row',
+  },
+  eyeLeft: {
+    backgroundColor: 'orange',
+    padding: 30,
+    marginRight: 10,
+  },
+  eyeRight: {
+    backgroundColor: 'orange',
+    padding: 30,
+    marginLeft: 10,
+  },
+  mouth1 : {
+    backgroundColor : 'orange',
+    padding : 30,
+    marginTop : 30,
   },
 });
