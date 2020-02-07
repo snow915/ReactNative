@@ -11,15 +11,25 @@ export default function App() {
             setName("Augusto");
         }
 
-    }
+    };
+    const updateSecondLine = () => {
+        setPerson({name : 'Marco', age : 52});
+    };
     return (
         <View style={styles.container}>
             <Text style={styles.textStyle}>My name is {name}</Text>
             <Text style={styles.textStyle}>Her name is {person.name} and her age is {person.age}</Text>
             <View style={styles.buttonStyle}>
                 <Button
-                    title='Update state'
+                    title='Update first line'
                     onPress={clickHandler}
+                />
+            </View>
+
+            <View style={styles.buttonStyle}>
+                <Button
+                    title='Update second line'
+                    onPress={updateSecondLine}
                 />
             </View>
         </View>
