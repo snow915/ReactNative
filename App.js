@@ -10,6 +10,7 @@ export default function App() {
             <TextInput
                 style={styles.input}
                 placeholder='e.g Augusto Armenta'
+                multiline //Le decimos que sea como un TextArea
                 onChangeText={(val) => setName(val)}
                 /*Lo ingresado en el TextInput sera pasado como parametro de la funcion flecha
                 * y a su vez la funcion flecha pasa ese parametro a setName que lo recibe respectivamente el state*/
@@ -18,6 +19,7 @@ export default function App() {
             <TextInput
                 style={styles.input}
                 placeholder='e.g 22'
+                keyboardType='numeric' //De esta forma se especifica el tipo de input
                 onChangeText={(val) => setAge(val)}
             />
             <Text style={styles.textStyle}>Name: {name} age: {age}</Text>
