@@ -1,37 +1,17 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View, TextInput} from 'react-native';
 
 export default function App() {
     const [name, setName] = useState("Augusto");
-    const [person, setPerson] = useState({name:'Marigel', age:'55'});
-    const clickHandler = () => {
-        if (name === 'Augusto'){
-            setName("Cristian");
-        } else {
-            setName("Augusto");
-        }
-
-    };
-    const updateSecondLine = () => {
-        setPerson({name : 'Marco', age : 52});
-    };
+    const [age, setPerson] = useState('55');
     return (
         <View style={styles.container}>
-            <Text style={styles.textStyle}>My name is {name}</Text>
-            <Text style={styles.textStyle}>Her name is {person.name} and her age is {person.age}</Text>
-            <View style={styles.buttonStyle}>
-                <Button
-                    title='Update first line'
-                    onPress={clickHandler}
-                />
-            </View>
-
-            <View style={styles.buttonStyle}>
-                <Button
-                    title='Update second line'
-                    onPress={updateSecondLine}
-                />
-            </View>
+            <Text>Enter a name: </Text>
+            <TextInput
+                style={styles.input}
+                placeholder='e.g Augusto Armenta'
+            />
+            <Text style={styles.textStyle}>Name: {name} age: {age}</Text>
         </View>
     );
 }
@@ -39,16 +19,18 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2d0073',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
 
     },
-    textStyle : {
-      color : 'white',
-    },
-    buttonStyle : {
-      marginTop : 15,
-    },
+
+    input: {
+        borderWidth : 1,
+        borderColor : "#777",
+        padding: 8,
+        margin: 10,
+        width: 200,
+    }
 
 });
