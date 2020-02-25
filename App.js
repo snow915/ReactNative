@@ -3,13 +3,22 @@ import {StyleSheet, Text, View, TextInput} from 'react-native';
 
 export default function App() {
     const [name, setName] = useState("Augusto");
-    const [age, setPerson] = useState('55');
+    const [age, setAge] = useState('55');
     return (
         <View style={styles.container}>
             <Text>Enter a name: </Text>
             <TextInput
                 style={styles.input}
                 placeholder='e.g Augusto Armenta'
+                onChangeText={(val) => setName(val)}
+                /*Lo ingresado en el TextInput sera pasado como parametro de la funcion flecha
+                * y a su vez la funcion flecha pasa ese parametro a setName que lo recibe respectivamente el state*/
+            />
+            <Text>Enter age: </Text>
+            <TextInput
+                style={styles.input}
+                placeholder='e.g 22'
+                onChangeText={(val) => setAge(val)}
             />
             <Text style={styles.textStyle}>Name: {name} age: {age}</Text>
         </View>
