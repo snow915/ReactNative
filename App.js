@@ -14,8 +14,9 @@ export default function App() {
         {name: 'Oscar', key: '9'},
     ]);
     return (
+        <ScrollView>
         <View style={styles.container}>
-            <ScrollView>
+
                 {people.map((item) => { //item hace referencia al objeto que va siendo iterado
                     return (
                         //Con key={item.key} cada iteración tendra un prop unico que sera key
@@ -24,8 +25,9 @@ export default function App() {
                         </View>
                     )
                 })}
-            </ScrollView>
+
         </View>
+        </ScrollView>
 );
 }
 
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
 
     item: {
         marginTop: 30,
-        padding: 30,
+        padding: 50,
         backgroundColor: 'purple',
         fontSize: 24,
         color: 'white',
