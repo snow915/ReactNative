@@ -1,33 +1,27 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, FlatList} from 'react-native';
 
 export default function App() {
     const [people, setPeople] = useState([
-        {name: 'shaun', key: '1'},
-        {name: 'Augusto', key: '2'},
-        {name: 'Cristian', key: '3'},
-        {name: 'Marigel', key: '4'},
-        {name: 'Ofelia', key: '5'},
-        {name: 'Polo', key: '6'},
-        {name: 'Pepito', key: '7'},
-        {name: 'Juana', key: '8'},
-        {name: 'Oscar', key: '9'},
+        {name: 'shaun', id: '1'},
+        {name: 'Augusto', id: '2'},
+        {name: 'Cristian', id: '3'},
+        {name: 'Marigel', id: '4'},
+        {name: 'Ofelia', id: '5'},
+        {name: 'Polo', id: '6'},
+        {name: 'Pepito', id: '7'},
+        {name: 'Juana', id: '8'},
+        {name: 'Oscar', id: '9'},
     ]);
     return (
-        <ScrollView>
-        <View style={styles.container}>
-
-                {people.map((item) => { //item hace referencia al objeto que va siendo iterado
-                    return (
-                        //Con key={item.key} cada iteración tendra un prop unico que sera key
-                        <View key={item.key}>
-                            <Text style={styles.item}>{item.name}</Text>
-                        </View>
-                    )
-                })}
-
-        </View>
-        </ScrollView>
+        <FlatList
+            keyExtractor={(item) => item.id}
+            data={people}
+            renderItem={({item}) => (
+                <Text style={styles.item}>{item.name}</Text>
+            )}
+        />
+        //Esto ya trae ScrollView integrado
 );
 }
 
