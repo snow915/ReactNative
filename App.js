@@ -2,27 +2,25 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 
 export default function App() {
-    const [name, setName] = useState("Augusto");
-    const [age, setAge] = useState('55');
+    const [people, setPeople] = useState([
+        {name: 'shaun', key: '1'},
+        {name: 'Augusto', key: '2'},
+        {name: 'Cristian', key: '3'},
+        {name: 'Marigel', key: '4'},
+        {name: 'Ofelia', key: '5'},
+        {name: 'Polo', key: '6'},
+        {name: 'Pepito', key: '7'},
+    ]);
     return (
         <View style={styles.container}>
-            <Text>Enter a name: </Text>
-            <TextInput
-                style={styles.input}
-                placeholder='e.g Augusto Armenta'
-                multiline //Le decimos que sea como un TextArea
-                onChangeText={(val) => setName(val)}
-                /*Lo ingresado en el TextInput sera pasado como parametro de la funcion flecha
-                * y a su vez la funcion flecha pasa ese parametro a setName que lo recibe respectivamente el state*/
-            />
-            <Text>Enter age: </Text>
-            <TextInput
-                style={styles.input}
-                placeholder='e.g 22'
-                keyboardType='numeric' //De esta forma se especifica el tipo de input
-                onChangeText={(val) => setAge(val)}
-            />
-            <Text style={styles.textStyle}>Name: {name} age: {age}</Text>
+            {people.map((item) => { //item hace referencia al objeto que va siendo iterado
+                return (
+                    //Con key={item.key} cada iteración tendra un prop unico que sera key
+                    <View key={item.key}>
+                        <Text>{item.name}</Text>
+                    </View>
+                )
+            })}
         </View>
     );
 }
@@ -35,13 +33,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
 
     },
-
-    input: {
-        borderWidth : 1,
-        borderColor : "#777",
-        padding: 8,
-        margin: 10,
-        width: 200,
-    }
-
 });
