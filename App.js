@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
 
 export default function App() {
     const [people, setPeople] = useState([
@@ -13,13 +13,22 @@ export default function App() {
         {name: 'Juana', id: '8'},
         {name: 'Oscar', id: '9'},
     ]);
+
+    const pressHandler = (id) => {
+        setPeople((prevPeople) => {
+            return prevPeople.filter(person => person.id != id); //Devolvera lo que sea diferente al ID, es decir, desaparecera el elemento cuando lo toquemos
+        });
+    }
+
     return (
         <FlatList
             numColumns={2}
             keyExtractor={(item) => item.id}
             data={people}
             renderItem={({item}) => (
-                <Text style={styles.item}>{item.name}</Text>
+                <TouchableOpacity onPress={() => pressHandler(item.id)}>
+                    <Text style={styles.item}>{item.name}</Text>
+                </TouchableOpacity>
             )}
         />
         //Esto ya trae ScrollView integrado
