@@ -12,15 +12,17 @@ export default function App() {
         {text: 'play on the switch', key: '3'}
     ]);
 
-    const submitHandler = (text) => {
+    /*ESTA ES LA FUNCION QUE VA A AÑADIR EL NUEVO OBJETO AL STATE, QUE ES EL QUE SE ITERA PARA MOSTRAR LOS ELEMENTOS*/
+    const submitHandler = (text) => { //RECIBE UN PARAMETRO, QUE ES EL TEXTO INGRESADO EN EL INPUT DESDE addTodo.js
         setTodos((prevTodos) => {
             return [
-                {text : text, key : Math.random().toString()},
+                {text : text, key : Math.random().toString()}, /*AQUI AÑADIMOS EL NUEVO OBJETO*/
                 ...prevTodos //Operador de propagación
             ]
         })
     }
 
+    /*ESTA FUNCION ELIMINA EL ELEMENTO DEL STATE QUE LE DEMOS CLICK*/
     const pressHandler = (key) => {
         setTodos((prevTodos) => {
             return prevTodos.filter(todo => todo.key != key);
@@ -31,6 +33,8 @@ export default function App() {
         <View style={styles.container}>
             <Header />
             <View style={styles.content}>
+                {/*LE PASAMOS LA FUNCION submitHandler a la funcion AddTodo en addTodo.js
+                QUE ES LA QUE TRATA AL INPUT Y EL BOTON PARA AGREGAR EL NUEVO ELEMENTO*/}
                 <AddTodo submitHandler={submitHandler}/>
                 <View style={styles.list}>
                     <FlatList

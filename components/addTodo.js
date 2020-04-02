@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, TextInput, Button} from 'react-native';
 
-export default function AddTodo({submitHandler}){
+export default function AddTodo({submitHandler}){ //RECIBE COMO PARAMETRO LA FUNCION submitHandler
 
     const [text,setText] = useState('');
 
+    /*RECIBE EL TEXTO INGRESADO EN EL INPUT Y LO PASA AL STATE*/
     const changeHandler = (value) => {
         setText(value)
     }
@@ -17,7 +18,7 @@ export default function AddTodo({submitHandler}){
                 onChangeText={(value) => changeHandler(value)} //El texto ingresado se pasa a la funcion changeHandler
             />
             <Button
-                onPress={() => submitHandler(text)}
+                onPress={() => submitHandler(text)} //CUANDO PRESIONAMOS EL BOTON OBTIENE EL TEXTO DEL STATE Y LO PASA A LA FUNCION submitHandler
                 title='add todo'
                 color='coral'
             />
